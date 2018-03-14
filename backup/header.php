@@ -1,11 +1,11 @@
 <?php
 include "sys/sessions.php";
-if(isset($_POST['username']) && ($_POST['password'])){
+
 //Post data ophalen en beveiligen
 $username = $_POST['username']; 
 $password = $_POST['password'];
 $username = strip_tags($username); 
-$password = strip_tags($password);}
+$password = strip_tags($password);
 
 //Checken of de username bestaat en het wachtwoord klopt, zo ja inloggen en gegevens opslaan.
 	if(isset($_POST['submit'])){
@@ -19,7 +19,7 @@ $password = strip_tags($password);}
 					
 					$_SESSION['username'] = $username;
 					$_SESSION['isLogged'] = 1;
-					header("location:lib/pages/client.php");
+					header("location:$BASELINK/client.php");
 				}else{
 					echo"<div class='alert alert-danger'>";
 					  echo"<strong>Fout,</strong> dit is het onjuiste wachtwoord!";
@@ -54,14 +54,14 @@ $password = strip_tags($password);}
 			<span class="icon-bar"></span>
 			<span class="icon-bar"></span>
 			</button>
-			<a class="navbar-brand" href="<?php echo "lib\pages"; ?>/home.php"><img src="tpl/image/w3newbie.png" alt="logo"></a>
+			<a class="navbar-brand" href="<?php echo $BASELINK; ?>/home.php"><img src="tpl/image/w3newbie.png" alt="logo"></a>
 			</div>
 			<div class="collapse navbar-collapse" id="myNavbar">
 				<ul class="nav navbar-nav navbar-right">
-					<li class="active"><a href="index.php">Home</a></li>
-					<li><a href="index.php">Volg de battle!</a></li>
-					<li><a href="index.php">Clients</a></li>
-					<li><a href="index.php">Contact</a></li>
+					<li class="active"><a href="<?php echo $BASELINK; ?>/home.php">Home</a></li>
+					<li><a href="<?php echo $BASELINK; ?>/ipcams.php">Volg de battle!</a></li>
+					<li><a href="<?php echo $BASELINK; ?>/clients.php">Clients</a></li>
+					<li><a href="<?php echo $BASELINK; ?>/contact.php">Contact</a></li>
 					<li class="dropdown">
 						<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button">
 							Login<span class="caret"></span>

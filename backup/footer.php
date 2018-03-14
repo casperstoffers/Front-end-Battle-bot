@@ -1,9 +1,9 @@
-﻿    </div>
+    </div>
 	<footer id="myFooter">
         <div class="container">
             <div class="row">
                 <div class="col-sm-4 text-center">
-					<a href="<?php echo "lib\pages"; ?>/home.php"><img class="footerlogo" src="tpl/image/bunny.png" alt="bunny"></a>
+					<a href="<?php echo $BASELINK; ?>/home.php"><img class="footerlogo" src="tpl/image/bunny.png" alt="bunny"></a>
                 </div>
                 <div class="col-sm-4 text-center">
                     <h5>Contact</h5>
@@ -12,11 +12,11 @@
 				<div class="col-sm-4 text-center">
                     <h5>Links</h5>
                     <ul>
-                        <li><a href="<?php echo "lib\pages"; ?>/ipcams.php">Camera's</a></li>
-                        <li><a href="<?php echo "lib\pages"; ?>/clients.php">Clients</a></li>
-                        <li><a href="<?php echo "lib\pages"; ?>/score.php">Scoreboard</a></li>
-						<li><a href="<?php echo "lib\pages"; ?>/sitemap.php">Sitemap</a></li>
-						<li><a href="<?php echo "lib\pages"; ?>/disclaimer.php">Disclaimer</a></li>
+                        <li><a href="<?php echo $BASELINK; ?>/ipcams.php">Camera's</a></li>
+                        <li><a href="<?php echo $BASELINK; ?>/clients.php">Clients</a></li>
+                        <li><a href="<?php echo $BASELINK; ?>/score.php">Scoreboard</a></li>
+						<li><a href="<?php echo $BASELINK; ?>/sitemap.php">Sitemap</a></li>
+						<li><a href="<?php echo $BASELINK; ?>/disclaimer.php">Disclaimer</a></li>
                     </ul>
                 </div>
             </div>

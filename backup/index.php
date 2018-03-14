@@ -1,5 +1,4 @@
 <?php
-
 // Configuration
 if (file_exists('sys/config.php')) {
 	require_once('sys/config.php');
@@ -12,26 +11,23 @@ if(isset($_GET['requested_path'])) {
     $requested_path = "/";
 }
 
-if(file_exists("lib/pages/".$requested_path) && $requested_path != "/" && !empty($requested_path)){
+if(file_exists($_SERVER['DOCUMENT_ROOT']."/lib/pages/".$requested_path) && $requested_path != "/" && !empty($requested_path)){
 
     if(substr($requested_path, -1) == "/"){
         $requested_path .="index.php";
     }
 
-    $fetch_file = "lib/pages/".$requested_path;
+    $fetch_file = $_SERVER['DOCUMENT_ROOT']."/lib/pages/".$requested_path;
 
 } else if($requested_path == "/" || empty($requested_path)) {
 
-    $fetch_file = "lib/pages/home.php";
+    $fetch_file = $_SERVER['DOCUMENT_ROOT']."/lib/pages/home.php";
 
 } else {
 
-    $fetch_file = "lib/error/404.php";
+    $fetch_file = $_SERVER['DOCUMENT_ROOT']."/lib/error/404.php";
 
 }
-
-//temp manuel link changer
-$fetch_file = "lib/pages/home.php";
 
 if (file_exists('tpl/inc/header.php')) {
 	require_once('tpl/inc/header.php');
