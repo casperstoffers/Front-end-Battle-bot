@@ -92,6 +92,7 @@ padding:1% 0;
     padding: 10px;
     transition: 0.2s;
 }
+
 #myFooter .social-networks a:hover{text-decoration: none;}
 #myFooter .facebook:hover{color:#0077e2;}
 #myFooter .google:hover{color:#ef1a1a;}

@@ -31,7 +31,7 @@ if(file_exists("lib/pages/".$requested_path) && $requested_path != "/" && !empty
 }
 
 //temp manuel link changer
-$fetch_file = "lib/pages/home.php";
+$fetch_file = "lib/pages/client.php";
 
 if (file_exists('tpl/inc/header.php')) {
 	require_once('tpl/inc/header.php');
