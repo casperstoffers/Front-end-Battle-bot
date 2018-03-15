@@ -34,17 +34,76 @@
 		<h1 class="headings">Wat valt hier te beleven?</h1>
 		<div class="row row1">
 			<div class="col-sm-4 text-center">
-				<h3 class="headings">Zie het spel</h3>
+				
 				<!-- Hier komt de content-->
+                                <button id='buttonbattle'><h3 class="headings"><a href="index.php" class='remove'>Volg de battle!</a></h3></button>
 			</div>
-			<div class="col-sm-4 text-center">
-				<h3 class="headings">Speel het spel</h3>
+                    <?php
+                    if(isset($_SESSION['name']) && ($_SESSION['role'] == "bot")){
+			echo "<div class='col-sm-8 text-center'>
+				<h3 class='headings'>Speel het spel</h3>
 				<!-- Hier komt de content-->
-			</div>
-			<div class="col-sm-4 text-center">
+			</div>";
+                    }
+                    else{
+                        echo " <div class='col-sm-8 text-center'>
+                                <ul>
+                                    <li class='dropdown'>
+						<a href='#' class='remove' class='dropdown-toggle' data-toggle='dropdown' role='button'>
+							<button id='buttonlogin'>&#8629; Login</button> 
+						</a>
+						<div class='dropdown-menu' id='formLogin' >
+							<div class='row'>
+								<div class='container-fluid'>
+									<form action='' method='post' accept-charset='UTF-8'>
+										<div class='form-group'>
+											<label>Client</label>
+											<input class='form-control' name='username' id='username' type='text'>
+										</div>
+										<div class='form-group'>
+											<label>Wachtwoord</label>
+											<input class='form-control' name='password' id='password' type='password'><br>
+										</div>
+										<button type='submit' name='submit' class='btn btn-success btn-sm'>Login</button>
+									</form>
+								</div>
+							</div>
+						</div>
+					</li>
+                                </ul>
+                            </div>";
+                    }
+                    
+                    ?>
+			<div class="col-sm-8 text-center" class="content-right">
 				<h3 class="headings">Bekijk de score</h3>
 				<!-- Hier komt de content-->
-			</div>
+			</div>  <table id='scoretable'>
+                                    <thead>
+                                      <tr>
+                                        <th>#</th>
+                                        <th>First</th>
+                                        <th>Mark</th>
+                                      </tr>
+                                    </thead>
+                                    <tbody>
+                                      <tr>
+                                        <th>1</th>
+                                        <td>Mark</td>
+                                        <td>Mark</td>
+                                      </tr>
+                                      <tr>
+                                        <th>2</th>
+                                        <td>Jacob</td>
+                                        <td>Mark</td>
+                                      </tr>
+                                      <tr>
+                                        <th>3</th>
+                                        <td>Larry</td>
+                                        <td>Mark</td>
+                                      </tr>
+                                    </tbody>
+                                  </table>
 		</div>
 	</div>
 	<div class="container">
