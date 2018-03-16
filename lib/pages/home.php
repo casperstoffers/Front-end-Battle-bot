@@ -30,6 +30,12 @@
 			<span class="sr-only">Next</span>
 		</a>
 	</div>
+        <div class="container">
+		<div class="row row2">
+			<h1 class="text-center">Project Arduino Battlebots</h1>
+			<p>Deze website is ontwikkeld voor het project Arduino Battlebots door de eerste jaars studenten van Stenden Hoge school. De functie van deze website is om een controle te geven over de battlebots en andere mensen mee te kunnen laten kijken van op afstand met de games cameras en scoreboards.</p>
+		</div>
+	</div>
 	<div class="container text-center">
 		<h1 class="headings">Wat valt hier te beleven?</h1>
 		<div class="row row1">
@@ -41,7 +47,7 @@
                     <?php
                     if(isset($_SESSION['name']) && ($_SESSION['role'] == "bot")){
 			echo "<div class='col-sm-8 text-center'>
-				<h3 class='headings'>Speel het spel</h3>
+				<h3 class='headings'>Speel het spel!</h3>
 				<!-- Hier komt de content-->
 			</div>";
                     }
@@ -76,39 +82,41 @@
                     
                     ?>
 			<div class="col-sm-8 text-center" class="content-right">
-				<h3 class="headings">Bekijk de score</h3>
+				<h3 class="headings">Bekijk de recente score</h3>
 				<!-- Hier komt de content-->
-			</div>  <table id='scoretable'>
-                                    <thead>
-                                      <tr>
-                                        <th>#</th>
-                                        <th>First</th>
-                                        <th>Mark</th>
-                                      </tr>
-                                    </thead>
-                                    <tbody>
-                                      <tr>
-                                        <th>1</th>
-                                        <td>Mark</td>
-                                        <td>Mark</td>
-                                      </tr>
-                                      <tr>
-                                        <th>2</th>
-                                        <td>Jacob</td>
-                                        <td>Mark</td>
-                                      </tr>
-                                      <tr>
-                                        <th>3</th>
-                                        <td>Larry</td>
-                                        <td>Mark</td>
-                                      </tr>
-                                    </tbody>
-                                  </table>
-		</div>
+                            <a href="index.php">
+                                <button id="buttonscoreboard">    
+                                    <h3>Game: name here</h3>
+                                    <table id='scoretable'>
+                                        <thead>
+                                          <tr>
+                                            <th>#</th>
+                                            <th>Bot Name</th>
+                                            <th>Totale Score</th>
+                                          </tr>
+                                        </thead>
+                                        <tbody>
+                                          <tr>
+                                            <th>1</th>
+                                            <td>Kees</td>
+                                            <td>8</td>
+                                          </tr>
+                                          <tr>
+                                            <th>2</th>
+                                            <td>Mark</td>
+                                            <td>6</td>
+                                          </tr>
+                                          <tr>
+                                            <th>3</th>
+                                            <td>Tom</td>
+                                            <td>2</td>
+                                          </tr>
+                                        </tbody>
+                                    </table>
+                                </button>
+                            </a>
+                        </div>
+                    </div>
+		
 	</div>
-	<div class="container">
-		<div class="row row2">
-			<h1 class="text-center">Project Arduino Battlebots</h1>
-			<p></p>
-		</div>
-	</div>
+	
