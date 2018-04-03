@@ -1,0 +1,14 @@
+<?php
+/* HOW TO USE
+ * Kopieer deze file in de huidige folder, en noem hem database_config.php
+ * !!!COMMIT HET NIEUWE BESTAND NOOIT!!!!
+ * Hier komen al je connectie gegevens met je database in
+ * Ik herhaal: !!!COMMIT DAT HET NIEUWE BESTAND NOOIT!!!
+ */
+
+define('host', '127.0.0.1');
+define('user', 'root');
+define('pass', '');
+define('db', 'portfolio');
+
+?>
