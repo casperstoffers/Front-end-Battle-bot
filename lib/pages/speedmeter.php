@@ -14,7 +14,5 @@ if($value >= 21 && $value <= 30)
 }
 ?>
 <img style="height: 300px; width: 400px; margin-top: 40px; margin-left: 50px;" src="tpl/image/snelheid<?php echo $volume?>.jpg"/>
-<?php
-echo "<p style='font-size: 40px; margin-left: 230px;'>$value km/h</p>";
-?>
+
 

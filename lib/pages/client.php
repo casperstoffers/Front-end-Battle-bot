@@ -4,11 +4,11 @@
                         <div class="col-md-6">
                             <img  style="height: 300px; width: 400px; margin-top: 40px;"src="tpl/image/battlebotcontrols.jpg"/>
                             <p style=" margin-top: 40px;" id="control"></p>
-                            <script>
+                            <script>                                                       
                             document.addEventListener('keydown', function(event) {
                             if(event.keyCode == 87) {
                                 document.getElementById('control').innerHTML = "Je gaat vooruit";
-                            }
+                            }                           
                             else if(event.keyCode == 65) {
                                 document.getElementById('control').innerHTML = "Je gaat linksaf";
                             }
