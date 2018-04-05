@@ -254,7 +254,7 @@ $db = mysqli_connect(host, user, pass, db);
 						if($_GET['spel'] == "spel4"){
 							?>
 							<form action="update.php" method="post">
-								<select name="select_1" class="form-control form-control-sm">
+								<select name="select1" class="form-control form-control-sm">
 									<?php
 										$select_users = "select *  from user where user_id not in(select user_id from result where game_id = 4)";
 										$result_users = mysqli_query($db, $select_users);
@@ -270,7 +270,7 @@ $db = mysqli_connect(host, user, pass, db);
 									<label for="exampleInputEmail1">user 1</label>
 									<input type="text" class="form-control" name="user1" id="exampleInputEmail1" placeholder="punten user 1">
 								</div>
-								<select name="select_2" class="form-control form-control-sm">
+								<select name="select2" class="form-control form-control-sm">
 									<?php
 										$select_users = "select *  from user where user_id not in(select user_id from result where game_id = 4)";
 										$result_users = mysqli_query($db, $select_users);
