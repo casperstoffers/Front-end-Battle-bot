@@ -4,28 +4,29 @@
                         <div class="col-md-6">
                             <img  style="height: 300px; width: 400px; margin-top: 40px;"src="tpl/image/battlebotcontrols.jpg"/>
                             <p style=" margin-top: 40px;" id="control"></p>
-                            <script>                                                       
+                            <audio id="bigCar">
+                                <source src="lib/audio/formula+1.mp3">
+                            </audio>
+                            <script> 
+                            document.addEventListener('keyup', function(event) {
+                            if(event.keyCode == 87 || event.keyCode == 65 || event.keyCode == 68){
+                                document.getElementById('bigCar').pause();
+                               
+                            }                                
+                                 });
+                            
                             document.addEventListener('keydown', function(event) {
-                            if(event.keyCode == 87) {
-                                document.getElementById('control').innerHTML = "Je gaat vooruit";
-                            }                           
-                            else if(event.keyCode == 65) {
-                                document.getElementById('control').innerHTML = "Je gaat linksaf";
+                                
+                            if(event.keyCode == 87 || event.keyCode == 65 || event.keyCode == 68){
+                                document.getElementById('bigCar').play();
                             }
-                            else if(event.keyCode == 83) {
-                                document.getElementById('control').innerHTML = "Je gaat achteruit";
-                            }
-                            else if(event.keyCode == 68) {
-                                document.getElementById('control').innerHTML = "Je gaat rechtsaf";
-                            }
+                                                       
+                           
                             else if(event.keyCode == 81) {
                                 document.getElementById('control').innerHTML = "Special 1";
                             }
                             else if(event.keyCode == 69) {
                                 document.getElementById('control').innerHTML = "Special 2";
-                            }
-                            else {
-                                document.getElementById('control').innerHTML = "Geen geldig command";
                             }
 
                             });
