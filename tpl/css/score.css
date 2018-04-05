@@ -16,7 +16,8 @@
   background-color: #6B7A8F;
 }
 table{
-  width: 600px;
+  width: 100%;
+  max-width: 600px;
 }
 .panel{
   background-color: #DCC7AA;
@@ -33,4 +34,7 @@ table{
 .panel-primary > .panel-heading {
   background-color: #6B7A8F;
   border-color: #6B7A8F;
+}
+#stats{
+  color: #6B7A8F;
 }

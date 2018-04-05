@@ -37,10 +37,10 @@ $db = mysqli_connect(host, user, pass, db);
 					}
 				}
 				else{
-						echo '<a href="?spel=spel1" class="btn btn-primary" role="button" aria-pressed="true">spel1</a>';
-						echo '<a href="?spel=spel2" class="btn btn-primary" role="button" aria-pressed="true">spel2</a>';
-						echo '<a href="?spel=spel3" class="btn btn-primary" role="button" aria-pressed="true">spel3</a>';
-						echo '<a href="?spel=spel4" class="btn btn-primary" role="button" aria-pressed="true">spel4</a>';
+					echo '<a href="?spel=spel1" class="btn btn-primary" role="button" aria-pressed="true">spel1</a>';
+					echo '<a href="?spel=spel2" class="btn btn-primary" role="button" aria-pressed="true">spel2</a>';
+					echo '<a href="?spel=spel3" class="btn btn-primary" role="button" aria-pressed="true">spel3</a>';
+					echo '<a href="?spel=spel4" class="btn btn-primary" role="button" aria-pressed="true">spel4</a>';
 				}
 			}
 		}
@@ -321,7 +321,67 @@ $db = mysqli_connect(host, user, pass, db);
 						}
 					}
 				}
+				else{
+					echo "<div id=\"stats\">";
+					$select_max_time = "select max(time) as max_time from result";
+					$select_last_game =
+					"
+						select username, points, time
+						from result
+						inner join user on result.user_id = user.user_id
+						where time =
+						(select max(time)
+						from result)
+						order by points desc
+					";
+					$result_last_game = mysqli_query($db, $select_last_game)
+					or DIE("no query");
+					$result_max_time = mysqli_query($db, $select_max_time)
+					or DIE("no query max time");
+					$max_time = mysqli_fetch_array($result_max_time)
+					or DIE("cannot fetch");
+					if(!emtpy($result_last_game)){
+						echo "<h3>Laatste spel gespeeld {$max_time['max_time']}</h3>";
+						$i=0;
+						while($row = mysqli_fetch_array($result_last_game)){
+							$i++;
+							echo "<p>nr.{$i} is {$row['username']} en heeft er {$row['points']} punten gewonnen</p>";
+						}
+					}
+					echo "</div>";
+				}
 			}
+			else{
+				echo "<div id=\"stats\">";
+				$select_max_time = "select max(time) as max_time from result";
+				$select_last_game =
+				"
+					select username, points, time
+					from result
+					inner join user on result.user_id = user.user_id
+					where time =
+					(select max(time)
+					from result)
+					order by points desc
+				";
+				$result_last_game = mysqli_query($db, $select_last_game)
+				or DIE("no query");
+				$result_max_time = mysqli_query($db, $select_max_time)
+				or DIE("no query max time");
+				$max_time = mysqli_fetch_array($result_max_time)
+				or DIE("cannot fetch");
+				if(isset($result_last_game)){
+					echo "<h3>Laatste spel gespeeld {$max_time['max_time']}</h3>";
+					$i=0;
+					while($row = mysqli_fetch_array($result_last_game)){
+						$i++;
+						echo "<p>nr.{$i} is {$row['username']} en heeft er {$row['points']} punten gewonnen</p>";
+					}
+				}
+				echo "</div>";
+			}
+			mysqli_close($db);
 			?>
+
 		</div>
 	</body>
