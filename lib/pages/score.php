@@ -340,7 +340,7 @@ $db = mysqli_connect(host, user, pass, db);
 					or DIE("no query max time");
 					$max_time = mysqli_fetch_array($result_max_time)
 					or DIE("cannot fetch");
-					if(!emtpy($result_last_game)){
+					if(!empty($max_time[0])){
 						echo "<h3>Laatste spel gespeeld {$max_time['max_time']}</h3>";
 						$i=0;
 						while($row = mysqli_fetch_array($result_last_game)){
@@ -370,7 +370,7 @@ $db = mysqli_connect(host, user, pass, db);
 				or DIE("no query max time");
 				$max_time = mysqli_fetch_array($result_max_time)
 				or DIE("cannot fetch");
-				if(isset($result_last_game)){
+				if(!empty($max_time[0])){
 					echo "<h3>Laatste spel gespeeld {$max_time['max_time']}</h3>";
 					$i=0;
 					while($row = mysqli_fetch_array($result_last_game)){
