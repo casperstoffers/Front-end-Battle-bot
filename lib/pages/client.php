@@ -5,7 +5,7 @@
                             <img  style="height: 300px; width: 400px; margin-top: 40px;"src="../../tpl/image/battlebotcontrols.jpg"/>
                             <p style=" margin-top: 40px;" id="control"></p>
                             <audio id="bigCar">
-                                <source src="lib/audio/formula+1.mp3">
+                                <source src="../../lib/audio/formula+1.mp3">
                             </audio>
                             <script> 
                             document.addEventListener('keyup', function(event) {
@@ -13,8 +13,7 @@
                                 document.getElementById('bigCar').pause();
                                
                             }                                
-                                 });
-                            
+                            });                           
                             document.addEventListener('keydown', function(event) {
                                 
                             if(event.keyCode == 87 || event.keyCode == 65 || event.keyCode == 68){
@@ -27,20 +26,17 @@
                             else if(event.keyCode == 69) {
                                 //custom command 2
                             }
-
-                            });
-                            
+                            });                            
                             var xmlhttp = new XMLHttpRequest();
-
                             xmlhttp.onreadystatechange = function() {
                                 if (xmlhttp.readyState == XMLHttpRequest.DONE) {
                                    if (xmlhttp.status == 200) {
                                        document.getElementById("meter").innerHTML = xmlhttp.responseText;
                                    }
-                                   }
+                                }
                             };
                             window.setInterval(function(){        
-                                xmlhttp.open("GET", "lib/pages/speedmeter.php", true);
+                                xmlhttp.open("GET", "../../lib/pages/speedmeter.php", true);
                                 xmlhttp.send();
                             }, 1000);
                             </script>
