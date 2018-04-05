@@ -1,0 +1,36 @@
+.btn-primary {
+  background-color: #6B7A8F;
+  color: #DCC7AA;
+  margin-top: 10px;
+  margin-right: 20px;
+  border-color: #6B7A8F;
+}
+#active {
+  background-color: #F7C331;
+  color: #6B7A8F;
+  margin-top: 10px;
+  margin-right: 20px;
+  border-color: #F7C331;
+}
+.panel{
+  background-color: #6B7A8F;
+}
+table{
+  width: 600px;
+}
+.panel{
+  background-color: #DCC7AA;
+  margin-top: 10px;
+  border-color: #6B7A8F;
+}
+.panel-primary table{
+  color: #6B7A8F;
+}
+.panel-title{
+  color: #DCC7AA;
+}
+
+.panel-primary > .panel-heading {
+  background-color: #6B7A8F;
+  border-color: #6B7A8F;
+}

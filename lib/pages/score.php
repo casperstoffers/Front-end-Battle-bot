@@ -1,3 +1,4 @@
+<link rel="stylesheet" type="text/css" href="tpl/css/score.css">
 <?PHP
 require_once("config/database_config.php");
 $db = mysqli_connect(host, user, pass, db);
@@ -9,10 +10,38 @@ $db = mysqli_connect(host, user, pass, db);
 		session_start();
 		if(isset($_SESSION['username'])){
 			if($_SESSION['username'] == "admin"){
-				echo '<a href="?spel=spel1" class="btn btn-primary" role="button" aria-pressed="true">spel1</a>';
-				echo '<a href="?spel=spel2" class="btn btn-primary" role="button" aria-pressed="true">spel2</a>';
-				echo '<a href="?spel=spel3" class="btn btn-primary" role="button" aria-pressed="true">spel3</a>';
-				echo '<a href="?spel=spel4" class="btn btn-primary" role="button" aria-pressed="true">spel4</a>';
+				if(isset($_GET['spel'])){
+					if($_GET['spel'] == "spel1"){
+						echo '<a href="?spel=spel1" class="btn btn-primary" id="active" role="button" aria-pressed="true">spel1</a>';
+					}
+					else{
+						echo '<a href="?spel=spel1" class="btn btn-primary" role="button" aria-pressed="true">spel1</a>';
+					}
+					if($_GET['spel'] == "spel2"){
+						echo '<a href="?spel=spel2" class="btn btn-primary" id="active" role="button" aria-pressed="true">spel2</a>';
+					}
+					else{
+						echo '<a href="?spel=spel2" class="btn btn-primary" role="button" aria-pressed="true">spel2</a>';
+					}
+					if($_GET['spel'] == "spel3"){
+						echo '<a href="?spel=spel3" class="btn btn-primary" id="active" role="button" aria-pressed="true">spel3</a>';
+					}
+					else{
+						echo '<a href="?spel=spel3" class="btn btn-primary" role="button" aria-pressed="true">spel3</a>';
+					}
+					if($_GET['spel'] == "spel4"){
+						echo '<a href="?spel=spel4" class="btn btn-primary" id="active" role="button" aria-pressed="true">spel4</a>';
+					}
+					else{
+						echo '<a href="?spel=spel4" class="btn btn-primary" role="button" aria-pressed="true">spel4</a>';
+					}
+				}
+				else{
+						echo '<a href="?spel=spel1" class="btn btn-primary" role="button" aria-pressed="true">spel1</a>';
+						echo '<a href="?spel=spel2" class="btn btn-primary" role="button" aria-pressed="true">spel2</a>';
+						echo '<a href="?spel=spel3" class="btn btn-primary" role="button" aria-pressed="true">spel3</a>';
+						echo '<a href="?spel=spel4" class="btn btn-primary" role="button" aria-pressed="true">spel4</a>';
+				}
 			}
 		}
 		?>
@@ -204,7 +233,7 @@ $db = mysqli_connect(host, user, pass, db);
 							<?php
 						}
 						if($_GET['spel'] == "spel3"){
-						?>
+							?>
 							<form action="update.php" method="post">
 								<div class="form-group">
 									<label for="exampleInputEmail1">user 1</label>
@@ -256,14 +285,14 @@ $db = mysqli_connect(host, user, pass, db);
 							<form action="update.php" method="post">
 								<select name="select1" class="form-control form-control-sm">
 									<?php
-										$select_users = "select *  from user where user_id not in(select user_id from result where game_id = 4)";
-										$result_users = mysqli_query($db, $select_users);
+									$select_users = "select *  from user where user_id not in(select user_id from result where game_id = 4)";
+									$result_users = mysqli_query($db, $select_users);
 
-										while($row = mysqli_fetch_array($result_users)){
-											if($row['username'] != "admin"){
-												echo "<option value=\"{$row['user_id']}\">{$row['username']}</option>";
-											}
+									while($row = mysqli_fetch_array($result_users)){
+										if($row['username'] != "admin"){
+											echo "<option value=\"{$row['user_id']}\">{$row['username']}</option>";
 										}
+									}
 									?>
 								</select>
 								<div class="form-group">
@@ -272,13 +301,13 @@ $db = mysqli_connect(host, user, pass, db);
 								</div>
 								<select name="select2" class="form-control form-control-sm">
 									<?php
-										$select_users = "select *  from user where user_id not in(select user_id from result where game_id = 4)";
-										$result_users = mysqli_query($db, $select_users);
-										while($row = mysqli_fetch_array($result_users)){
-											if($row['username'] != "admin"){
-												echo "<option value=\"{$row['user_id']}\">{$row['username']}</option>";
-											}
+									$select_users = "select *  from user where user_id not in(select user_id from result where game_id = 4)";
+									$result_users = mysqli_query($db, $select_users);
+									while($row = mysqli_fetch_array($result_users)){
+										if($row['username'] != "admin"){
+											echo "<option value=\"{$row['user_id']}\">{$row['username']}</option>";
 										}
+									}
 									?>
 								</select>
 								<div class="form-group">
