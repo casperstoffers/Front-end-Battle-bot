@@ -3,12 +3,14 @@ require_once("config/database_config.php");
 $db = mysqli_connect(host, user, pass, db);
 if(!isset($_POST['spel'])){
   echo "<h1>wrong page</h1>";
+  mysqli_close($db);
 }
 else{
   if($_POST['spel'] == "1" || $_POST['spel'] == "2" || $_POST['spel'] == "3"){
     if(empty($_POST['user1']) ||empty($_POST['user2']) ||empty($_POST['user3']) ||empty($_POST['user4']) ||empty($_POST['user5']) ||
     empty($_POST['user6']) ||empty($_POST['user7']) ||empty($_POST['user8']) ||empty($_POST['user9']) ||empty($_POST['user10'])){
       echo "<h1>Not all fields are filled</h1>";
+      mysqli_close($db);
     }
     else{
       $insert_array = array
