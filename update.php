@@ -6,8 +6,8 @@ if(!isset($_POST['spel'])){
 }
 else{
   if($_POST['spel'] == "1" || $_POST['spel'] == "2" || $_POST['spel'] == "3"){
-    if(!isset($_POST['user1']) ||!isset($_POST['user2']) ||!isset($_POST['user3']) ||!isset($_POST['user4']) ||!isset($_POST['user5']) ||
-    !isset($_POST['user6']) ||!isset($_POST['user7']) ||!isset($_POST['user8']) ||!isset($_POST['user9']) ||!isset($_POST['user10'])){
+    if(empty($_POST['user1']) ||empty($_POST['user2']) ||empty($_POST['user3']) ||empty($_POST['user4']) ||empty($_POST['user5']) ||
+    empty($_POST['user6']) ||empty($_POST['user7']) ||empty($_POST['user8']) ||empty($_POST['user9']) ||empty($_POST['user10'])){
       echo "<h1>Not all fields are filled</h1>";
     }
     else{
@@ -34,22 +34,29 @@ else{
     }
   }
   elseif($_POST['spel'] == "4"){
-    if(!isset($_POST['user1']) || !isset($_POST['user2'])){
+    if(empty($_POST['user1']) || empty($_POST['user2'])){
       echo "<h1>Not all fields are filled</h1>";
+      mysqli_close($db);
     }
     else{
-      $insert_array = array
-      (
-        "insert into result (user_id, game_id, points) values ({$_POST['select1']}, 4, {$_POST['user1']})",
-        "insert into result (user_id, game_id, points) values ({$_POST['select2']}, 4, {$_POST['user2']})"
-      );
-      foreach($insert_array as $insert){
-        mysqli_query($db, $insert)
-        OR DIE(mysqli_error($db). mysqli_errno($db));
+      if($_POST['select1'] == $_POST['select2']){
+        echo "<h1>Cannot enter same user twice</h1>";
+        mysqli_close($db);
       }
-      mysqli_close($db);
-      header("Location: score.php");
-      die();
+      else{
+        $insert_array = array
+        (
+          "insert into result (user_id, game_id, points) values ({$_POST['select1']}, 4, {$_POST['user1']})",
+          "insert into result (user_id, game_id, points) values ({$_POST['select2']}, 4, {$_POST['user2']})"
+        );
+        foreach($insert_array as $insert){
+          mysqli_query($db, $insert)
+          OR DIE(mysqli_error($db). mysqli_errno($db));
+        }
+        mysqli_close($db);
+        header("Location: score.php");
+        die();
+      }
     }
   }
 }
